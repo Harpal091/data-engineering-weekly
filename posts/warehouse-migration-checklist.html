@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Warehouse Migration Checklist I Actually Trust | Harpal Singh - Data Engineering Notes</title>
+  <meta
+    name="description"
+    content="Eight checks worth doing before you call a warehouse migration complete."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-block">
+        <a class="site-brand" href="../index.html">Harpal Singh</a>
+        <p class="site-kicker">Data Engineering Notes</p>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#posts">Posts</a>
+        <a href="../index.html#about">About</a>
+        <a href="https://www.linkedin.com/in/harpal-singh091/">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="post-article">
+      <div class="post-meta">Apr 12, 2026 | Warehouse design | Data pipelines | Platform reliability</div>
+      <h1>A Warehouse Migration Checklist I Actually Trust</h1>
+
+      <p>
+        The dangerous part of a warehouse migration is not getting data to load once.
+        It is deciding too early that the system is equivalent when the real work of
+        trust, ownership, and consistency is still unresolved.
+      </p>
+
+      <h2>What I check before calling it done</h2>
+      <ul>
+        <li>Critical dashboards match the old system closely enough to explain differences.</li>
+        <li>Freshness checks are in place for the new pipeline paths.</li>
+        <li>Ownership is clear for every major upstream dependency.</li>
+        <li>Backfills have been tested, not just happy-path daily loads.</li>
+        <li>Rollback expectations are documented before the cutover window starts.</li>
+      </ul>
+
+      <h2>Why this matters</h2>
+      <p>
+        Migrations fail socially as often as they fail technically. If teams do not know
+        what changed, who owns the new surfaces, or how to interpret differences, the
+        migration becomes a long-running trust issue instead of a clean platform upgrade.
+      </p>
+
+      <a class="back-link" href="../index.html">Back to all posts</a>
+    </main>
+
+    <footer class="site-footer">
+      <p>Harpal Singh</p>
+      <p>Data Engineering Notes</p>
+    </footer>
+  </div>
+</body>
+</html>
