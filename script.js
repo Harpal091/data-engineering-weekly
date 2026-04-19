@@ -1,10 +1,11 @@
 const topicPills = document.querySelectorAll(".topic-pill");
 const postRows = document.querySelectorAll(".post-row");
 const postsStatus = document.querySelector("#posts-status");
+const emptyState = document.querySelector("#empty-state");
 
-const statusLabel = (topic, count) => {
+const getStatusText = (topic, count) => {
   if (topic === "all") {
-    return "Newest first. Short titles, clear dates, easy scanning.";
+    return "Newest first. Filter by topic to narrow the list.";
   }
 
   const activePill = document.querySelector(`.topic-pill[data-topic="${topic}"]`);
@@ -33,7 +34,11 @@ const applyTopicFilter = (topic) => {
   });
 
   if (postsStatus) {
-    postsStatus.textContent = statusLabel(topic, visibleCount);
+    postsStatus.textContent = getStatusText(topic, visibleCount);
+  }
+
+  if (emptyState) {
+    emptyState.hidden = visibleCount > 0;
   }
 };
 
