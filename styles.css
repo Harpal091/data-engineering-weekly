@@ -164,13 +164,32 @@ a:focus-visible {
 }
 
 .topic-list li {
+  list-style: none;
+}
+
+.topic-pill {
   padding: 6px 12px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  color: var(--text);
+  cursor: pointer;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.92rem;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.topic-pill:hover,
+.topic-pill:focus-visible {
+  border-color: #c8beb0;
+  color: var(--link-hover);
+}
+
+.topic-pill.is-active {
+  background: #e8f0f2;
+  border-color: #b7ccd2;
+  color: #204d59;
 }
 
 .post-list {
@@ -196,6 +215,10 @@ a:focus-visible {
 .post-row:last-child {
   border-bottom: 0;
   padding-bottom: 22px;
+}
+
+.post-row.is-hidden {
+  display: none;
 }
 
 .post-row time {
