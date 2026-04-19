@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observability for Data Pipelines | Pipeline Notes</title>
+  <meta
+    name="description"
+    content="What to monitor after data jobs succeed: freshness, volume, schema drift, and trust."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../index.html">Pipeline Notes</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#posts">Posts</a>
+        <a href="../index.html#topics">Topics</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </header>
+
+    <main class="post-article">
+      <div class="post-meta">Apr 19, 2026 | Data quality | Reliability</div>
+      <h1>Observability for Data Pipelines</h1>
+
+      <p>
+        A green job is not the same thing as a healthy pipeline. Jobs can succeed while
+        producing stale, incomplete, delayed, or structurally broken data.
+      </p>
+
+      <p>
+        In practice, I want observability to answer four questions quickly: did the
+        pipeline run, did it finish on time, did it produce the expected shape, and
+        should anyone still trust the output?
+      </p>
+
+      <h2>What I monitor first</h2>
+      <p>
+        The first layer is operational: task failures, retries, duration changes, and
+        schedule misses. This is table stakes.
+      </p>
+
+      <p>
+        The second layer is data-facing: freshness lag, row-count anomalies, null-rate
+        spikes, schema drift, and failed data quality checks. This is where most useful
+        signal tends to live.
+      </p>
+
+      <h2>What teams usually miss</h2>
+      <p>
+        Most teams alert on orchestration status but not on trust status. The result is
+        a system that says everything is fine while dashboards quietly decay.
+      </p>
+
+      <p>
+        If you only monitor whether code ran, you will miss whether data still means
+        what consumers think it means.
+      </p>
+
+      <a class="back-link" href="../index.html">Back to all posts</a>
+    </main>
+  </div>
+</body>
+</html>
