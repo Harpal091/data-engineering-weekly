@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Harpal Singh - Data Engineering Notes</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-block">
+        <a class="site-brand" href="index.html">Harpal Singh</a>
+        <p class="site-kicker">Data Engineering Notes</p>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">View site</a>
+      </nav>
+    </header>
+
+    <main class="admin-layout">
+      <section class="admin-panel">
+        <p class="section-label">Hidden admin</p>
+        <h1>Publish a new post</h1>
+        <p class="admin-intro">
+          Write in Markdown, preview the rendered article, and publish directly into the
+          GitHub Pages repo through a Netlify function.
+        </p>
+
+        <form id="post-form" class="post-form">
+          <div class="form-grid form-grid-double">
+            <label>
+              Title
+              <input id="title" name="title" type="text" required>
+            </label>
+            <label>
+              Publish date
+              <input id="date" name="date" type="date" required>
+            </label>
+          </div>
+
+          <label>
+            Summary
+            <textarea id="summary" name="summary" rows="3" required></textarea>
+          </label>
+
+          <div class="form-grid form-grid-double">
+            <label>
+              Slug
+              <input id="slug" name="slug" type="text" placeholder="generated-from-title" required>
+            </label>
+            <label>
+              Publishing endpoint
+              <input
+                id="endpoint"
+                name="endpoint"
+                type="url"
+                placeholder="https://your-site.netlify.app/.netlify/functions/publish-post"
+                required
+              >
+            </label>
+          </div>
+
+          <label>
+            Admin secret
+            <input id="secret" name="secret" type="password" autocomplete="current-password" required>
+          </label>
+
+          <fieldset class="topic-fieldset">
+            <legend>Topics</legend>
+            <div class="topic-checkboxes">
+              <label><input type="checkbox" name="topics" value="data-pipelines"> Data pipelines</label>
+              <label><input type="checkbox" name="topics" value="airflow-and-orchestration"> Airflow</label>
+              <label><input type="checkbox" name="topics" value="dbt-and-modeling"> dbt and modeling</label>
+              <label><input type="checkbox" name="topics" value="data-quality"> Data quality</label>
+              <label><input type="checkbox" name="topics" value="warehouse-design"> Warehouse design</label>
+              <label><input type="checkbox" name="topics" value="platform-reliability"> Platform reliability</label>
+            </div>
+          </fieldset>
+
+          <label>
+            Markdown body
+            <textarea id="markdownBody" name="markdownBody" rows="18" required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" id="publish-button">Publish post</button>
+            <p id="form-message" class="form-message" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+
+      <aside class="preview-panel">
+        <div class="preview-head">
+          <p class="section-label">Live preview</p>
+          <p class="preview-note">Matches the public post layout closely enough to trust before publishing.</p>
+        </div>
+        <article id="preview-article" class="post-article preview-article">
+          <div class="post-meta" id="preview-meta">Date | Topics</div>
+          <h1 id="preview-title">Post title</h1>
+          <div id="preview-body">
+            <p>Start typing in the editor to preview the rendered post.</p>
+          </div>
+        </article>
+      </aside>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
