@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When dbt Models Become Too Coupled | Harpal Singh - Data Engineering Notes</title>
+  <meta
+    name="description"
+    content="How tightly connected dbt models slow teams down and make simple changes feel riskier than they should."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-block">
+        <a class="site-brand" href="../index.html">Harpal Singh</a>
+        <p class="site-kicker">Data Engineering Notes</p>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#posts">Posts</a>
+        <a href="../index.html#about">About</a>
+        <a href="https://www.linkedin.com/in/harpal-singh091/">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="post-article">
+      <div class="post-meta">Apr 5, 2026 | dbt and modeling | Data pipelines</div>
+      <h1>When dbt Models Become Too Coupled</h1>
+
+      <p>
+        A dbt project starts to feel heavy long before it becomes technically impossible
+        to maintain. Usually the warning sign is not size by itself. It is how many
+        unrelated questions now require touching the same tightly connected model chain.
+      </p>
+
+      <h2>What coupling looks like in practice</h2>
+      <p>
+        One change to naming, grain, or business logic creates surprising downstream
+        breakage. Review scope expands. Tests are harder to interpret. Teams become
+        reluctant to clean up old assumptions because the blast radius is no longer clear.
+      </p>
+
+      <h2>What helps</h2>
+      <p>
+        Clear model intent, stricter boundaries between staging and business logic, and
+        fewer convenience references across domains all make the project easier to change.
+      </p>
+
+      <a class="back-link" href="../index.html">Back to all posts</a>
+    </main>
+
+    <footer class="site-footer">
+      <p>Harpal Singh</p>
+      <p>Data Engineering Notes</p>
+    </footer>
+  </div>
+</body>
+</html>
