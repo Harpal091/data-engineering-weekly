@@ -1,0 +1,153 @@
+.admin-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr);
+  gap: 30px;
+  padding-top: 44px;
+}
+
+.admin-panel,
+.preview-panel {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 249, 0.82);
+  box-shadow: var(--shadow-soft);
+}
+
+.admin-panel h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.admin-intro,
+.preview-note,
+.form-message {
+  color: var(--muted);
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.admin-intro {
+  max-width: 58ch;
+  margin: 14px 0 0;
+}
+
+.post-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.post-form label,
+.topic-fieldset {
+  display: grid;
+  gap: 8px;
+  color: var(--text);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.94rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.form-grid-double {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.post-form input,
+.post-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fffdfa;
+  color: var(--text);
+  font: inherit;
+}
+
+.post-form textarea {
+  resize: vertical;
+}
+
+.topic-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.topic-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+}
+
+.topic-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.form-actions button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.form-actions button:hover,
+.form-actions button:focus-visible {
+  background: var(--accent-strong);
+}
+
+.form-message {
+  margin: 0;
+  min-height: 1.4em;
+}
+
+.form-message.is-error {
+  color: #9d3b31;
+}
+
+.form-message.is-success {
+  color: #215d46;
+}
+
+.preview-head {
+  margin-bottom: 16px;
+}
+
+.preview-note {
+  margin: 8px 0 0;
+}
+
+.preview-article {
+  padding-top: 10px;
+}
+
+@media (max-width: 940px) {
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .form-grid-double,
+  .topic-checkboxes {
+    grid-template-columns: 1fr;
+  }
+}
