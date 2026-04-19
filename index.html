@@ -6,129 +6,132 @@
   <title>Harpal Singh - Data Engineering Notes</title>
   <meta
     name="description"
-    content="A simple personal blog about data engineering, pipelines, warehouses, and platform reliability."
+    content="A personal blog about data engineering, orchestration, warehouse design, and building data systems people can trust."
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page">
+  <div class="page-shell">
     <header class="site-header">
-      <a class="site-title" href="index.html">Harpal Singh - Data Engineering Notes</a>
+      <div class="brand-block">
+        <a class="site-brand" href="index.html">Harpal Singh</a>
+        <p class="site-kicker">Data Engineering Notes</p>
+      </div>
       <nav class="site-nav" aria-label="Primary">
         <a href="#posts">Posts</a>
-        <a href="#topics">Topics</a>
         <a href="#about">About</a>
         <a href="https://www.linkedin.com/in/harpal-singh091/">LinkedIn</a>
       </nav>
     </header>
 
     <main>
-      <section class="intro">
-        <p class="eyebrow">Personal blog on data engineering</p>
-        <h1>Notes on data engineering.</h1>
-        <p class="intro-copy">
-          Writing about pipelines, warehouses, orchestration, and the practical work of
-          making data systems easier to trust.
-        </p>
-        <p class="intro-copy">
-          This site is intentionally simple: readers should be able to land here,
-          understand what I write about, and discover posts quickly.
-        </p>
-        <div class="intro-links">
-          <a href="#posts">Browse posts</a>
-          <a href="https://www.linkedin.com/in/harpal-singh091/">Connect on LinkedIn</a>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Pipelines, warehouses, orchestration, and reliability</p>
+          <h1>Thoughtful notes on building data systems that are easier to trust.</h1>
+          <p class="hero-text">
+            I write about practical data engineering work: failure modes, warehouse
+            design, observability, modeling tradeoffs, and the decisions that make
+            analytics platforms more dependable over time.
+          </p>
         </div>
+        <aside class="hero-note">
+          <p class="hero-note-label">Current focus</p>
+          <p>
+            Designing data systems that stay legible as teams, pipelines, and
+            dependencies grow.
+          </p>
+        </aside>
       </section>
 
-      <section id="topics" class="section">
-        <h2>Topics</h2>
-        <ul class="topic-list" aria-label="Topic filters">
-          <li><button class="topic-pill is-active" type="button" data-topic="all">All</button></li>
-          <li><button class="topic-pill" type="button" data-topic="data-pipelines">Data pipelines</button></li>
-          <li><button class="topic-pill" type="button" data-topic="airflow-and-orchestration">Airflow and orchestration</button></li>
-          <li><button class="topic-pill" type="button" data-topic="dbt-and-modeling">dbt and modeling</button></li>
-          <li><button class="topic-pill" type="button" data-topic="data-quality">Data quality</button></li>
-          <li><button class="topic-pill" type="button" data-topic="warehouse-design">Warehouse design</button></li>
-          <li><button class="topic-pill" type="button" data-topic="platform-reliability">Platform reliability</button></li>
-        </ul>
-      </section>
+      <section id="posts" class="archive">
+        <div class="archive-head">
+          <div>
+            <p class="section-label">Archive</p>
+            <h2>Posts</h2>
+          </div>
+          <p id="posts-status" class="archive-status">
+            Newest first. Filter by topic to narrow the list.
+          </p>
+        </div>
 
-      <section id="posts" class="section">
-        <div class="section-header">
-          <h2>Posts</h2>
-          <p id="posts-status">Newest first. Short titles, clear dates, easy scanning.</p>
+        <div id="topics" class="topic-strip" aria-label="Topic filters">
+          <button class="topic-pill is-active" type="button" data-topic="all">All</button>
+          <button class="topic-pill" type="button" data-topic="data-pipelines">Data pipelines</button>
+          <button class="topic-pill" type="button" data-topic="airflow-and-orchestration">Airflow</button>
+          <button class="topic-pill" type="button" data-topic="dbt-and-modeling">dbt and modeling</button>
+          <button class="topic-pill" type="button" data-topic="data-quality">Data quality</button>
+          <button class="topic-pill" type="button" data-topic="warehouse-design">Warehouse design</button>
+          <button class="topic-pill" type="button" data-topic="platform-reliability">Platform reliability</button>
         </div>
 
         <ol class="post-list">
-          <li
-            class="post-row"
-            data-topics="data-pipelines data-quality platform-reliability"
-          >
+          <!-- POST_LIST_START -->
+          <li class="post-row" data-topics="data-pipelines data-quality platform-reliability">
             <time datetime="2026-04-19">Apr 19, 2026</time>
             <div class="post-main">
               <a href="posts/observability-for-data-pipelines.html">Observability for Data Pipelines</a>
               <p>What to monitor after jobs turn green: freshness, volume, schema drift, and trust signals.</p>
             </div>
           </li>
-
-          <li
-            class="post-row"
-            data-topics="data-pipelines airflow-and-orchestration dbt-and-modeling data-quality warehouse-design platform-reliability"
-          >
-            <time datetime="2026-04-10">Apr 10, 2026</time>
+          <li class="post-row" data-topics="warehouse-design data-pipelines platform-reliability">
+            <time datetime="2026-04-12">Apr 12, 2026</time>
             <div class="post-main">
-              <a href="posts/template.html">Writing Template for New Posts</a>
-              <p>Use this page as the copy-and-edit starting point whenever you publish a new article.</p>
+              <a href="posts/warehouse-migration-checklist.html">A Warehouse Migration Checklist I Actually Trust</a>
+              <p>Eight checks worth doing before you announce a migration is done just because the pipelines ran once.</p>
             </div>
           </li>
-
-          <li
-            class="post-row"
-            data-topics="warehouse-design data-pipelines"
-          >
-            <time datetime="2026-03-29">Mar 29, 2026</time>
+          <li class="post-row" data-topics="dbt-and-modeling data-pipelines">
+            <time datetime="2026-04-05">Apr 5, 2026</time>
             <div class="post-main">
-              <a href="#about">What breaks first in a warehouse migration</a>
-              <p>A placeholder entry showing how future posts can appear before you write the full page.</p>
+              <a href="posts/dbt-model-coupling.html">When dbt Models Become Too Coupled</a>
+              <p>How tightly connected models slow teams down, hide intent, and make simple changes feel riskier than they should.</p>
             </div>
           </li>
+          <!-- POST_LIST_END -->
         </ol>
+
+        <p id="empty-state" class="empty-state" hidden>
+          No posts match this topic yet.
+        </p>
       </section>
 
-      <section id="about" class="section">
-        <h2>About</h2>
-        <div class="prose">
+      <section id="about" class="about-section">
+        <div class="about-copy">
+          <p class="section-label">About</p>
+          <h2>Writing in public as I build and learn.</h2>
           <p>
             I'm Harpal Singh, and I use this blog to share what I'm learning and building
-            in data engineering. I'm especially interested in pipelines, orchestration,
-            warehouse design, data quality, and the practical work of making data systems
-            easier to trust.
+            in data engineering. I'm especially interested in orchestration, warehouse
+            design, data quality, and the practical work of making data systems easier
+            to trust.
           </p>
           <p>
-            My goal here is to write clearly about real engineering problems: what breaks,
-            what scales poorly, what teams usually overlook, and what design choices make
-            platforms more reliable over time.
+            My goal here is to write clearly about real engineering problems: what
+            breaks, what scales poorly, what teams usually overlook, and what design
+            choices make platforms more reliable over time.
           </p>
-          <p>
-            If you're working on similar problems or just enjoy thoughtful writing about
-            data systems, you can connect with me on
-            <a href="https://www.linkedin.com/in/harpal-singh091/">LinkedIn</a>.
-          </p>
+        </div>
+        <div class="about-card">
+          <p class="about-card-label">Elsewhere</p>
+          <p>Connect with me on LinkedIn for updates, career milestones, and future writing.</p>
+          <a href="https://www.linkedin.com/in/harpal-singh091/">Visit LinkedIn</a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Harpal Singh - Data Engineering Notes</p>
-      <p>Writing about pipelines, reliability, and warehouse systems.</p>
+      <p>Harpal Singh</p>
+      <p>Data Engineering Notes</p>
     </footer>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
