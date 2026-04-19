@@ -48,24 +48,28 @@
 
       <section id="topics" class="section">
         <h2>Topics</h2>
-        <ul class="topic-list">
-          <li>Data pipelines</li>
-          <li>Airflow and orchestration</li>
-          <li>dbt and modeling</li>
-          <li>Data quality</li>
-          <li>Warehouse design</li>
-          <li>Platform reliability</li>
+        <ul class="topic-list" aria-label="Topic filters">
+          <li><button class="topic-pill is-active" type="button" data-topic="all">All</button></li>
+          <li><button class="topic-pill" type="button" data-topic="data-pipelines">Data pipelines</button></li>
+          <li><button class="topic-pill" type="button" data-topic="airflow-and-orchestration">Airflow and orchestration</button></li>
+          <li><button class="topic-pill" type="button" data-topic="dbt-and-modeling">dbt and modeling</button></li>
+          <li><button class="topic-pill" type="button" data-topic="data-quality">Data quality</button></li>
+          <li><button class="topic-pill" type="button" data-topic="warehouse-design">Warehouse design</button></li>
+          <li><button class="topic-pill" type="button" data-topic="platform-reliability">Platform reliability</button></li>
         </ul>
       </section>
 
       <section id="posts" class="section">
         <div class="section-header">
           <h2>Posts</h2>
-          <p>Newest first. Short titles, clear dates, easy scanning.</p>
+          <p id="posts-status">Newest first. Short titles, clear dates, easy scanning.</p>
         </div>
 
         <ol class="post-list">
-          <li class="post-row">
+          <li
+            class="post-row"
+            data-topics="data-pipelines data-quality platform-reliability"
+          >
             <time datetime="2026-04-19">Apr 19, 2026</time>
             <div class="post-main">
               <a href="posts/observability-for-data-pipelines.html">Observability for Data Pipelines</a>
@@ -73,7 +77,10 @@
             </div>
           </li>
 
-          <li class="post-row">
+          <li
+            class="post-row"
+            data-topics="data-pipelines airflow-and-orchestration dbt-and-modeling data-quality warehouse-design platform-reliability"
+          >
             <time datetime="2026-04-10">Apr 10, 2026</time>
             <div class="post-main">
               <a href="posts/template.html">Writing Template for New Posts</a>
@@ -81,7 +88,10 @@
             </div>
           </li>
 
-          <li class="post-row">
+          <li
+            class="post-row"
+            data-topics="warehouse-design data-pipelines"
+          >
             <time datetime="2026-03-29">Mar 29, 2026</time>
             <div class="post-main">
               <a href="#about">What breaks first in a warehouse migration</a>
@@ -119,5 +129,6 @@
       <p>Writing about pipelines, reliability, and warehouse systems.</p>
     </footer>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
