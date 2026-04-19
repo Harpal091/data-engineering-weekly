@@ -1,68 +1,84 @@
-# Pipeline Notes
+# Harpal Singh - Data Engineering Notes
 
-A very simple personal blog that is easy to host on GitHub Pages.
+A public blog served by GitHub Pages, with a hidden admin workflow for publishing new
+posts through a Netlify function that writes back to the repo.
 
-## What changed
+## What is in this repo
 
-This version is intentionally much simpler than the first design:
+- `index.html` is the public homepage and archive.
+- `styles.css` is the shared public styling.
+- `script.js` powers topic filtering on the homepage.
+- `admin.html` is the hidden writing UI.
+- `admin.css` and `admin.js` power the admin experience.
+- `posts/` contains published HTML posts served by GitHub Pages.
+- `content/posts/` stores Markdown source for posts published through the admin flow.
+- `netlify/functions/publish-post.js` publishes new posts into the repo.
+- `netlify.toml` configures Netlify for the publishing backend.
 
-- one homepage
-- one clean list of posts
-- separate HTML file for each post
-- no framework
-- no build step
+## Public hosting
 
-This makes it easier to understand, publish, and maintain.
+GitHub Pages can continue serving the public site from this repository.
 
-## File structure
+## Admin publishing flow
 
-- `index.html` is the homepage and post archive.
-- `styles.css` is the shared styling for the whole site.
-- `posts/observability-for-data-pipelines.html` is a sample post.
-- `posts/template.html` is the file you copy when writing a new post.
-- `.nojekyll` keeps GitHub Pages from trying to process the site with Jekyll.
+The admin UI is available at:
 
-## How to write a new post
+- `admin.html`
 
-1. Copy `posts/template.html`.
-2. Rename it to something like `posts/my-new-post.html`.
-3. Edit the title, date, description, and article body.
-4. Open `index.html`.
-5. Add a new `<li class="post-row">...</li>` near the top of the post list.
-6. Set the link to your new file, for example `posts/my-new-post.html`.
+It is intentionally not linked from the public homepage.
 
-That is it. No build step is required.
+The publishing flow works like this:
 
-## How to host on GitHub Pages
+1. Open the admin page.
+2. Write a post in Markdown.
+3. Preview the rendered result.
+4. Publish through a Netlify function.
+5. The Netlify function writes:
+   - a Markdown source file to `content/posts/`
+   - a rendered HTML file to `posts/`
+   - a new archive row to `index.html`
 
-This repo will publish as a project site at:
+## Netlify setup
 
-`https://Harpal091.github.io/data-engineering-weekly`
+Deploy this repo to Netlify as well so the publishing backend has a home.
 
-To enable it:
+Required environment variables:
 
-1. Open the repository on GitHub.
-2. Go to `Settings` -> `Pages`.
-3. Under build and deployment, choose `Deploy from a branch`.
-4. Select branch `main` and folder `/ (root)`.
-5. Click `Save`.
-6. Wait a minute or two for the first deployment.
+- `GITHUB_TOKEN`
+- `ADMIN_SECRET`
+- `GITHUB_OWNER`
+- `GITHUB_REPO`
+- `SITE_BASE_URL`
 
-## How to update the blog later
+Recommended values for this repo:
 
-Every time you want to publish:
+- `GITHUB_OWNER=Harpal091`
+- `GITHUB_REPO=data-engineering-weekly`
+- `SITE_BASE_URL=https://harpal091.github.io/data-engineering-weekly`
 
-1. Create a new post file in `posts/`.
-2. Add the new post to the list in `index.html`.
-3. Commit and push to GitHub.
-4. GitHub Pages will republish the site automatically.
+`GITHUB_TOKEN` must be a GitHub token with permission to update repository contents.
 
-## Good first content plan
+`ADMIN_SECRET` is a shared secret used by the hidden admin page when publishing.
 
-If you feel confused about what to publish first, write only these three posts:
+## Notes about the admin page
 
-- One post about a pipeline incident or failure mode.
-- One post about a warehouse or dbt modeling lesson.
-- One post about a practical reliability checklist.
+If you open `admin.html` on GitHub Pages, the default publishing endpoint will not be
+correct for repo writes because GitHub Pages does not run Netlify functions.
 
-That is enough to make the site feel real.
+You have two options:
+
+1. Open the admin page from the Netlify deployment of this repo.
+2. Or keep using the GitHub Pages version of `admin.html` and paste your Netlify function
+   URL into the `Publishing endpoint` field.
+
+Example endpoint:
+
+`https://YOUR-NETLIFY-SITE.netlify.app/.netlify/functions/publish-post`
+
+## Current limitations
+
+- v1 supports creating new posts only
+- no post editing UI yet
+- no draft management UI yet
+- no rich text editor yet
+- markdown preview is lightweight but practical
